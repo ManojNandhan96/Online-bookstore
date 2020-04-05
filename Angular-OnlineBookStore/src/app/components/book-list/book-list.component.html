@@ -1,0 +1,17 @@
+<table border="1">
+    <thead>
+      <th>Image</th>
+      <th>Sku</th>
+      <th>Name</th>
+      <th>Unit price</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let book of books">
+        <td><img src="http://placehold.it/70x50"></td>
+       <td>{{book.sku}}</td>
+       <td>{{book.name}}</td>
+       <td>{{book.unitprice | currency:'INR'}}</td>
+      </tr>
+      
+    </tbody>
+ </table>
