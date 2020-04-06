@@ -13,8 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import lombok.ToString;
 
 
@@ -58,6 +57,9 @@ public class Book {
 	
 	@Column(name="last_updated")
 	private Date updatedOn;
+	
+	
+	
 	
 	public long getId() {
 		return id;
@@ -139,16 +141,16 @@ public class Book {
 		this.updatedOn = updatedOn;
 	}
 
-	public BookCategory getCategoryId() {
-		return categoryId;
+	public BookCategory getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(BookCategory categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(BookCategory category) {
+		this.category = category;
 	}
 
 	@ManyToOne
 	@JoinColumn(name="category_id",nullable=false)
-	private BookCategory categoryId;    //note: datatype not same in sql
+	private BookCategory category;    //note: datatype not same in sql
 
 }
