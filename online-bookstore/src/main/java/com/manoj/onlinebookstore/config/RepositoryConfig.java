@@ -19,9 +19,18 @@ public class RepositoryConfig implements RepositoryRestConfigurer{
    private EntityManager entityManager;
    @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+//	   Expose id  in book class
 //		  config.exposeIdsFor(Book.class);
-
+//	   Expose id in all data
  	  config.exposeIdsFor(entityManager.getMetamodel().getEntities().stream().map(Type::getJavaType).toArray(Class[]::new));
+ 	  
+ 	  
+ 	  
+ //   cross origin
+ 	  config.getCorsRegistry().addMapping("/**").allowedOrigins("http://localhost:4200");
+      
     }
+   
+    
 	
 }
